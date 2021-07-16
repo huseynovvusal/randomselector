@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Calculator</title>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(-45deg, #fff, rgb(252, 252, 252));
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .container {
+            padding: 3rem 1rem;
+            border-radius: 0.25rem;
+            background: linear-gradient(-45deg, rgb(242, 242, 242), rgb(254, 254, 254));
+            box-shadow:inset 0px 0px 15px rgba(0, 0, 0, 0.05);
+        }
+        .container form{
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+
+        form div {
+            padding: 0.5rem;
+        }
+
+        form div input {
+            padding: 1rem 4rem;
+            border: none;
+            outline: none;
+            border-radius: 4rem;
+            box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        form input {
+            padding: 0.75rem 3rem;
+            border-radius: 4rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 1.3rem;
+            border: none;
+            background: linear-gradient(135deg, rgb(242, 242, 242), rgb(254, 254, 254));
+            box-shadow:3px 3px 3px rgba(0, 0, 0, 0.1),-3px -3px 3px rgba(255, 255, 255, 0.1);
+            margin: 1rem ;
+            transition: 300ms;
+        }
+        form input:active{
+            box-shadow:inset 3px 3px 3px rgba(0, 0, 0, 0.1),inset -3px -3px 3px rgba(255, 255, 255, 0.1);
+        }
+        .container div p{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 1.25rem;
+            margin-left: 0.5rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            transition: 300ms;
+            font-size: 1.5rem;
+        }
+        .container p:last-child{
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            background: linear-gradient(135deg, rgb(242, 242, 242), rgb(254, 254, 254));
+            box-shadow:3px 3px 3px rgba(0, 0, 0, 0.1),-3px -3px 3px rgba(255, 255, 255, 0.1);
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <div class="first-name">
+                <input type="text" id="first" name="first">
+            </div>
+            <div class="second-name">
+                <input type="text" id="second" name="second">
+            </div>
+            <div class="third-name">
+                <input type="text" id="third" name="third">
+            </div>
+            <div class="fourth-name">
+                <input type="text" id="fourth" name="fourth">
+            </div>
+            <div class="third-name">
+                <input type="text" id="fifth" name="fifth">
+            </div>
+            <div class="last-name">
+                <input type="text" id="last" name="last">
+            </div>
+            <input type="button" value="Gönder" onclick="deney();">
+            <input type="reset" onclick="sil();">
+        </form>
+
+        <div class="end">
+            <p>result:</p>
+            <p id="result-variant"></p>
+        </div>
+
+    </div>
+
+
+    <script>
+        function deney() {
+            let a = document.getElementById("first").value;
+            let b = document.getElementById("second").value;
+            let c = document.getElementById("third").value;
+            let d = document.getElementById("fourth").value;
+            let e = document.getElementById("fifth").value;
+            let f = document.getElementById("last").value;
+
+            var min = 1;
+            var max = 6;
+            var result = Math.floor(Math.random() * (max + min + 1) + min);
+            if (result == 1) {
+                document.getElementById("result-variant").innerHTML = a;
+            }
+            else if (result == 2) {
+                document.getElementById("result-variant").innerHTML = b;
+            }
+            else if (result == 3) {
+                document.getElementById("result-variant").innerHTML = c;
+            }
+            else if (result == 4) {
+                document.getElementById("result-variant").innerHTML = d;
+            }
+            else if (result == 5) {
+                document.getElementById("result-variant").innerHTML = e;
+            }
+            else {
+                document.getElementById("result-variant").innerHTML = f;
+            }
+        }
+
+
+        function sil(){
+            document.getElementById("result-variant").innerHTML =" ";
+        }
+    </script>
+</body>
+
+</html>
